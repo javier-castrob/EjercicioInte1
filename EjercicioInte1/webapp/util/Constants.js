@@ -19,6 +19,11 @@ sap.ui.define([
                     fecha: "/fecha",
                     proveedor: "/proveedor",
                     pais: "/pais"
+                },
+                i18n: {
+                    fecha: "labelFecha",
+                    proveedor : "proveedor",
+                    pais: "labelPais"
                 }
             },
             json: {
@@ -27,17 +32,18 @@ sap.ui.define([
             },
             ids: {
                 tablaFragment:{
+                    id: "idFragmentTabla",
                     tabla: "idTableProductos",
                     filasTabla: "idFilasTabla"
                 },
-                FRAGMENTS: {
-                    tabla: "idFragmentTabla"
+                detalleDialog:{
+                    id: "idDetalleDialog"
                 }
             },
             routes: {
                 main: "Main",
                 FRAGMENTS: {
-                    dialog: "EjercicioInte1.EjercicioInte1.fragments.Dialog"
+                    dialog: "EjercicioInte1.EjercicioInte1.fragments.dialogoDetalle"
                 }
             }
 		};

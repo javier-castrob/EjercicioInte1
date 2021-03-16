@@ -47,9 +47,9 @@ sap.ui.define([
                 let sFecha =  oBusquedaModel.getProperty(Constants.properties.Busqueda.fecha);
                 let sProveedor =  oBusquedaModel.getProperty(Constants.properties.Busqueda.proveedor);
                 let sPais =  oBusquedaModel.getProperty(Constants.properties.Busqueda.pais);
-                let sLabelFecha= this.getOwnerComponent().getModel(Constants.model.I18N).getResourceBundle().getText("labelFecha");
-                let sLabelProveedor= this.getOwnerComponent().getModel(Constants.model.I18N).getResourceBundle().getText("proveedor");
-                let sLabelPais = this.getOwnerComponent().getModel(Constants.model.I18N).getResourceBundle().getText("labelPais");
+                let sLabelFecha= this.getOwnerComponent().getModel(Constants.model.I18N).getResourceBundle().getText(Constants.properties.i18n.fecha);
+                let sLabelProveedor= this.getOwnerComponent().getModel(Constants.model.I18N).getResourceBundle().getText(Constants.properties.i18n.proveedor);
+                let sLabelPais = this.getOwnerComponent().getModel(Constants.model.I18N).getResourceBundle().getText(Constants.properties.i18n.pais);
                 MessageBox.information(
                     `${sLabelFecha}: ${sFecha}
                     ${sLabelProveedor}: ${sProveedor}
@@ -68,8 +68,8 @@ sap.ui.define([
                     aFilters = new Filter(aFilters);
                 }
                 // update list binding
-                var sFragmentId = this.getView().createId("idFragmentTabla");                                
-                var oTabla = sap.ui.core.Fragment.byId(sFragmentId, "idTableProductos");
+                var sFragmentId = this.getView().createId(Constants.ids.tablaFragment.id);                                
+                var oTabla = sap.ui.core.Fragment.byId(sFragmentId, Constants.ids.tablaFragment.tabla);
                 var oBinding = oTabla.getBinding("items");
                 oBinding.filter(aFilters, "Application");
             },
@@ -81,7 +81,7 @@ sap.ui.define([
                 let productoModel = new JSONModel (oProductoSeleccionado);
                 this.getView().setModel(productoModel, Constants.model.Producto);                
                 if (!this._oFragment) {
-                    this._oFragment = sap.ui.xmlfragment("idDetalleDialog", "EjercicioInte1.EjercicioInte1.fragments.dialogoDetalle", this);
+                    this._oFragment = sap.ui.xmlfragment(Constants.ids.detalleDialog.id, Constants.routes.FRAGMENTS.dialog , this);
                     this.getView().addDependent(this._oFragment);
                 }
                 this._oFragment.open();
