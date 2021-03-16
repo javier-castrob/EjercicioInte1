@@ -1,0 +1,30 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Dialog id="idDetalleDialog" title="{i18n>titleDialog}">
+        <Panel>
+            <content>
+                <VBox >
+                    <Text text="{i18n>producto}: {Producto>/producto}"></Text>
+                    <Text text="{i18n>proveedor}: {Producto>/proveedor}"></Text>
+                    <Text text="{i18n>tamaño}: {Producto>/tamaño}"></Text>
+                    <ObjectNumber
+                            number="{i18n>peso}: {Producto>/peso}"
+                            unit="{i18n>medidaPeso}"
+                            state="{
+                                path: 'Producto>/peso',
+                                formatter: '.Formatter.estadoPeso'
+                            }"
+                        />
+                    <ObjectNumber
+							number="{i18n>valor}: {
+								path:'Producto>/valor',
+                                formatter: '.Formatter.ARSaEUR'
+							}"
+							unit="{i18n>medidaPrecio}" />
+                </VBox>
+            </content>
+        </Panel>
+        <beginButton>
+            <Button text="{i18n>cerrar}" press="closeDialog"></Button>
+        </beginButton>
+    </Dialog>
+</core:FragmentDefinition>

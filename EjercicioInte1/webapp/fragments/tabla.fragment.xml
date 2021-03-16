@@ -1,0 +1,112 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+    <Panel >
+        <f:Form editable="true">
+			<f:title>
+				<core:Title text="{i18n>titleForm}" />
+			</f:title>
+			<f:layout>
+				<f:ResponsiveGridLayout
+					labelSpanXL="4"
+					labelSpanL="4"
+					labelSpanM="12"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="1"
+					emptySpanL="1"
+					emptySpanM="0"
+					emptySpanS="0"
+					columnsXL="3"
+					columnsL="3"
+					columnsM="2"
+					singleContainerFullSize="false" />
+			</f:layout>
+			<f:formContainers>
+                <f:FormContainer title="{i18n>titleBusqueda}">
+                    <f:formElements>
+						<f:FormElement label="{i18n>labelFecha}">
+							<f:fields>
+								<DatePicker placeholder="{i18n>phFecha}" value="{Busqueda>/fecha}"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+                </f:FormContainer>
+				<f:FormContainer title=" ">
+					<f:formElements>
+						<f:FormElement label="{i18n>labelProveedores}">
+							<f:fields>
+								<Select items="{Proveedores>/Proveedores/}" selectedKey="{Busqueda>/proveedor}" >
+                                    <core:Item text="{Proveedores>nombre}" key="{Proveedores>nombre}"/>
+                                </Select>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+                <f:FormContainer title=" ">
+					<f:formElements>
+						<f:FormElement label="{i18n>labelPais}">
+							<f:fields>
+								<Input value="{Busqueda>/pais}"/>
+                                <Button text="{i18n>boton}" press="buscar" >
+                                    <layoutData>
+										<l:GridData span="XL2 L2 M3 S4" />
+									</layoutData>
+                                </Button>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+        <Table id="idTableProductos" items="{Productos>/Productos}">
+            <headerToolbar>
+                <OverflowToolbar>
+                    <content>
+                        <ToolbarSpacer />
+                        <SearchField width="40%" placeholder="{i18n>search}" liveChange="onSearch" />
+                    </content>
+                </OverflowToolbar>
+            </headerToolbar>
+            <columns>
+                <Column >
+                    <Text text="{i18n>producto}" />
+                </Column>
+                <Column >
+                    <Text text="{i18n>proveedor}" />
+                </Column>
+                <Column >
+                    <Text text="{i18n>tamaño}" />
+                </Column>
+                <Column >
+                    <Text text="{i18n>peso}" />
+                </Column>
+                <Column >
+                    <Text text="{i18n>valor}" />
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem id="idFilasTabla" press="detalle" type="Active">
+                    <cells>
+                        <Text text="{Productos>producto}"/>
+                        <Text text="{Productos>proveedor}"/>
+                        <Text text="{Productos>tamaño}"/>
+                        <ObjectNumber
+                            number="{Productos>peso}"
+                            unit="{i18n>medidaPeso}"
+                            state="{
+                                path: 'Productos>peso',
+                                formatter: '.Formatter.estadoPeso'
+                            }"
+                        />
+                        <ObjectNumber
+							number="{
+								path:'Productos>valor',
+                                formatter: '.Formatter.ARSaEUR'
+							}"
+							unit="{i18n>medidaPrecio}" />
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+    </Panel>
+</core:FragmentDefinition>

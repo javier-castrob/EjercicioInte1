@@ -1,0 +1,50 @@
+_schema-version: "3.2"
+ID: EjercicioInte1
+version: 0.0.1
+modules:
+- name: ejerciciointe1-approuter
+  type: approuter.nodejs
+  path: ejerciciointe1-approuter
+  requires:
+  - name: EjercicioInte1_html_repo_runtime
+  parameters:
+    disk-quota: 256M
+    memory: 256M
+- name: EjercicioInte1_ui_deployer
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: EjercicioInte1_html_repo_host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - EjercicioInte1-content.zip
+      name: EjercicioInte1
+      target-path: resources/
+- name: EjercicioInte1
+  type: html5
+  path: EjercicioInte1
+  build-parameters:
+    builder: custom
+    commands:
+    - npm run build
+    supported-platforms: []
+resources:
+- name: EjercicioInte1_html_repo_runtime
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-plan: app-runtime
+- name: EjercicioInte1_html_repo_host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-plan: app-host
+build-parameters:
+  before-all:
+  - builder: custom
+    commands:
+    - npm install

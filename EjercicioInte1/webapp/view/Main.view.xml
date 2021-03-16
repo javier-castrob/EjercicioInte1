@@ -1,0 +1,10 @@
+<mvc:View controllerName="EjercicioInte1.EjercicioInte1.controller.Main" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <headerContent>
+		    <Switch state="true" customTextOn="ES" customTextOff="EN" change="cambiarIdioma"/>
+		</headerContent>
+        <content>
+            <core:Fragment fragmentName="EjercicioInte1.EjercicioInte1.fragments.tabla" type="XML" id="idFragmentTabla"/>
+        </content>
+    </Page>
+</mvc:View>

@@ -1,0 +1,33 @@
+{
+    "Productos" : [
+        {
+            "producto": "10'' Portable DVD player",
+            "proveedor": "Titanium",
+            "tamaño": "24 x 19.5 x 29 cm",
+            "peso": "1.84",
+            "valor": "48900"
+        },
+        {
+            "producto": "7'' Widescreen Portable DVD Player",
+            "proveedor": "Titanium",
+            "tamaño": "21.4 x 19 x 27.6 cm",
+            "peso": "0.79",
+            "valor": "27100"
+        },
+        {
+            "producto": "Astro Laptop 1516",
+            "proveedor": "Ultrasonic United",
+            "tamaño": "30 x 18 x 3 cm",
+            "peso": "4.2",
+            "valor": "107212"
+        },
+        {
+            "producto": "Astro Phone 6",
+            "proveedor": "Ultrasonic United",
+            "tamaño": "8 x 6 x 1.5 cm",
+            "peso": "0.75",
+            "valor": "70354"
+        }
+    ]
+
+}

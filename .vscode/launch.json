@@ -1,0 +1,25 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run EjercicioInte1-EjercicioInte1",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/ejerciciointe1-approuter/node_modules/@sap/html5-repo-mock/index.js",
+      "args": [
+        "--standalone",
+        "/EjercicioInte1EjercicioInte1/index.html",
+        "--ui5",
+        "{\"version\":\"1.84.8\"}"
+      ],
+      "cwd": "${workspaceFolder}/EjercicioInte1",
+      "env": {
+        "PORT": "6004",
+        "MOCK_LOOKUP_DIRS": "[\"webapp\"]",
+        "run.config": "{\"handlerId\":\"ui5_run_config_handler_id\",\"runnableId\":\"/home/user/projects/EjercicioInte1/EjercicioInte1\"}"
+      },
+      "envFile": "${workspaceFolder}/EjercicioInte1/.env1",
+      "preLaunchTask": "Build EjercicioInte1"
+    }
+  ]
+}
